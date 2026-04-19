@@ -44,9 +44,9 @@ mongoose.connect(MONGO_URI)
   .then(() => {
     console.log("✅ Database connected successfully");
     
-    const PORT = 8080;
+    const PORT = process.env.PORT || 8080;
     // '0.0.0.0' allows access from other devices on your local network if needed
-    app.listen(PORT, '0.0.0.0', () => {
+    app.listen(Number(PORT), '0.0.0.0', () => {
       console.log(`\n--- Server Started ---`);
       console.log(`🚀 API Base: http://localhost:${PORT}/api`);
       console.log(`🔐 Auth:     http://localhost:${PORT}/api/auth`);
