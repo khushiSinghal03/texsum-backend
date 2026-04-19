@@ -14,7 +14,10 @@ const app = express();
 
 // Middlewares
 app.use(cors({
-  origin: "*", // This allows your local frontend and live frontend to talk to it
+  origin: [
+    "http://localhost:5173", 
+    "https://texsum-ai-frontend.vercel.app"
+  ],
   methods: ["GET", "POST", "PUT", "DELETE"],
   credentials: true
 }
