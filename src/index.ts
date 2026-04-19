@@ -13,7 +13,13 @@ import historyRoutes from './routes/historyRoutes';
 const app = express();
 
 // Middlewares
-app.use(cors()); 
+app.use(cors({
+  origin: "*", // This allows your local frontend and live frontend to talk to it
+  methods: ["GET", "POST", "PUT", "DELETE"],
+  credentials: true
+}
+
+)); 
 app.use(express.json()); 
 
 // Routes
